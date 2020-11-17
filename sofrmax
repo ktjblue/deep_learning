@@ -1,0 +1,322 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled63.ipynb",
+      "provenance": [],
+      "collapsed_sections": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "DLiMELhsLkNP"
+      },
+      "source": [
+        " import numpy as np\n"
+      ],
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KUrNkgW9Lqge"
+      },
+      "source": [
+        " a = np.array([0.3, 0.9, 5.0])\n"
+      ],
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "QndEZwxjLq25"
+      },
+      "source": [
+        "a = np.array([0.3, -0.9, 5.0])"
+      ],
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "kBND-CS8Lto2",
+        "outputId": "dcf48526-7754-4666-b5b8-fb777ab14ab3",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        }
+      },
+      "source": [
+        "a"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([ 0.3, -0.9,  5. ])"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "CUGTQGorLvlu"
+      },
+      "source": [
+        "def softmax(a): \n",
+        "  exp_a = np.exp(a)\n",
+        "  sum_exp_a = np.sum(exp_a) \n",
+        "  y = exp_a / sum_exp_a \n",
+        "  return y\n"
+      ],
+      "execution_count": 8,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "dSps_SDKLxBo"
+      },
+      "source": [
+        "y = softmax(a)"
+      ],
+      "execution_count": 9,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "IDJoB1dtL8QY",
+        "outputId": "bb2720de-a77b-48d4-ec71-1914898ba7b8",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        }
+      },
+      "source": [
+        "print(y)"
+      ],
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[0.0089889 0.0027074 0.9883037]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "y2ErjCx5L9zA",
+        "outputId": "be01b4ef-a89d-4429-ec70-1aba948cab49",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        }
+      },
+      "source": [
+        " np.sum(y)"
+      ],
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1.0"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "TcGAf_HXL_Kc"
+      },
+      "source": [
+        " a = np.array([1010, 1000, 990])"
+      ],
+      "execution_count": 12,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "5p-p3fvjMA2m",
+        "outputId": "bec783c3-7a41-44fd-ace4-d2c46335e274",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        }
+      },
+      "source": [
+        " y = softmax(a)\n"
+      ],
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "/usr/local/lib/python3.6/dist-packages/ipykernel_launcher.py:2: RuntimeWarning: overflow encountered in exp\n",
+            "  \n",
+            "/usr/local/lib/python3.6/dist-packages/ipykernel_launcher.py:4: RuntimeWarning: invalid value encountered in true_divide\n",
+            "  after removing the cwd from sys.path.\n"
+          ],
+          "name": "stderr"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "X_K9fUcOMCNw",
+        "outputId": "afd3b04e-0c3e-4def-8ada-65c004e0a60a",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        }
+      },
+      "source": [
+        "print(y)"
+      ],
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[nan nan nan]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "L0uLJ1-rMEwo"
+      },
+      "source": [
+        " def stable_softmax(a): \n",
+        "   c = np.max(a) \n",
+        "   exp_a = np.exp(a-c) \n",
+        "   sum_exp_a = sum(np.exp(a-c)) \n",
+        "   y = exp_a/sum_exp_a \n",
+        "   return y\n"
+      ],
+      "execution_count": 16,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "0ecloeGyMLpW"
+      },
+      "source": [
+        "y = stable_softmax(a)"
+      ],
+      "execution_count": 17,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "cXjo2xSpMQnU"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "UyfciHqxMNyG",
+        "outputId": "94f08143-6e02-488d-ffa6-895d01794d64",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        }
+      },
+      "source": [
+        "print(y)"
+      ],
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[9.99954600e-01 4.53978686e-05 2.06106005e-09]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wqgP8Oe1MPmC",
+        "outputId": "186f3a5c-b2e1-41f4-9546-0a78f9d00917",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        }
+      },
+      "source": [
+        "np.sum(y)"
+      ],
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1.0"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KgK4xaP8MRAy"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
