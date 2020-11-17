@@ -1,0 +1,262 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled64.ipynb",
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "hmACwiZPM8z9"
+      },
+      "source": [
+        "import numpy as np"
+      ],
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "cxuF395PM9p8"
+      },
+      "source": [
+        "def MSE(y, t):\n",
+        "    loss = 0.5 * np.sum((y-t)**2)\n",
+        "    return loss"
+      ],
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PVjR_o2iM-vx"
+      },
+      "source": [
+        "t = [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]\n",
+        "\n",
+        "y1 = [0.2, 0.01, 0.5, 0.0, 0.02, 0.01, 0.0, 0.15, 0.1, 0.02]\n",
+        "y2 = [0.2, 0.01, 0.0, 0.5, 0.02, 0.01, 0.0, 0.15, 0.1, 0.02]"
+      ],
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "_qe68A18NAFY"
+      },
+      "source": [
+        "loss1 = MSE(np.array(t), np.array(y1))\n",
+        "loss2 = MSE(np.array(t), np.array(y2))"
+      ],
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "b3lm8D5UNBLo",
+        "outputId": "6c825c32-99ce-498b-fb60-8a8fa3fa0f11",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "\n",
+        "print(loss1)\n",
+        "print(loss2)"
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0.16175000000000003\n",
+            "0.66175\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "UR0wMAkTNF9o"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "hwKFPow4NCcX"
+      },
+      "source": [
+        "def CEE(y, t):\n",
+        "    epsilon = 0.00000001\n",
+        "    v_temp = t * np.log(y + epsilon)\n",
+        "    loss = -np.sum(v_temp)\n",
+        "    return loss"
+      ],
+      "execution_count": 6,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "xwerfatjNEcO",
+        "outputId": "4e017ca0-fca8-43c4-d843-e122fde86974",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "l1 = CEE(np.array(t), np.array(y1))\n",
+        "print(l1)"
+      ],
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "9.394547174415708\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wYEotJ8QNGlB",
+        "outputId": "503f4d17-56c0-4d05-85b2-acd86beb0f46",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "l2 = CEE(np.array(t), np.array(y2))\n",
+        "print(l2)"
+      ],
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "18.60488755139189\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "TEtZZVmSNLIH"
+      },
+      "source": [
+        "def MSE1(y, t):\n",
+        "    loss = 0.5 * np.sum((y-t)**2)\n",
+        "    return los"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "iJptrFsrNHxw"
+      },
+      "source": [
+        "t  = [ 0, 1]\n",
+        "\n",
+        "y1 = [ 0.2, 0.8]\n",
+        "y2 = [ 0.8, 0.2]\n",
+        "y3 = [ 0.1, 0.9]"
+      ],
+      "execution_count": 9,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "352jnl_fNKDf",
+        "outputId": "9a23d010-2fea-4ded-975e-c38e9b0fbd9a",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "los1 = MSE(np.array(t), np.array(y1))\n",
+        "los2 = MSE(np.array(t), np.array(y2))\n",
+        "los3 = MSE(np.array(t), np.array(y3))"
+      ],
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[0.2, 0.8]\n",
+            "[0.8, 0.2]\n",
+            "[0.1, 0.9]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "gIXdPlbzNStT",
+        "outputId": "1644c158-3709-4bb6-b1e0-f9f42b98ebfb",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 204
+        }
+      },
+      "source": [
+        "print(los1)\n",
+        "print(los2)\n",
+        "print(los3)"
+      ],
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-12-438da6ef4649>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlos1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlos2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlos3\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'los1' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "QohIvorzNmCj"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
