@@ -1,0 +1,156 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled67.ipynb",
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "jsnB9jiZPayJ"
+      },
+      "source": [
+        "import numpy as np"
+      ],
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "OxCLbjTAPb9t"
+      },
+      "source": [
+        "def sigmoid(x):\n",
+        "    return 1 / (1+np.exp(-x))"
+      ],
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "tJyzKOrDPdKb"
+      },
+      "source": [
+        "def identity_function(x):\n",
+        "    return x"
+      ],
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "frph7NHKPeEO"
+      },
+      "source": [
+        "def init_network():\n",
+        "    network = {}\n",
+        "    network['W1']= np.array([[0.1, 0.3, 0.5], [0.2, 0.4, 0.6]])\n",
+        "    network['b1']= np.array([0.1, 0.2, 0.3])\n",
+        "    network['W2']= np.array([[0.1, 0.4], [0.2, 0.5], [0.3, 0.6]])\n",
+        "    network['b2']= np.array([0.1, 0.2])\n",
+        "    network['W3']= np.array([[0.1, 0.3], [0.2, 0.4]])\n",
+        "    network['b3']= np.array([0.1, 0.2])\n",
+        "    \n",
+        "    return network"
+      ],
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "crAj21rQPfN9"
+      },
+      "source": [
+        "def forward(network, x):\n",
+        "    W1, W2, W3 = network['W1'], network['W2'], network['W3']\n",
+        "    b1, b2, b3 = network['b1'], network['b2'], network['b3']\n",
+        "    \n",
+        "    a1 = np.dot(x, W1) + b1\n",
+        "    z1 = sigmoid(a1)\n",
+        "    a2 = np.dot(z1, W2) + b2\n",
+        "    z2 = sigmoid(a2)\n",
+        "    a3 = np.dot(z2, W3) + b3\n",
+        "    y = identity_function(a3)\n",
+        "\n",
+        "    return y"
+      ],
+      "execution_count": 5,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "EzQFY8MPPgvB",
+        "outputId": "c4d658d4-bb9c-4d46-c7f4-a8f6948adffd",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "network = init_network()\n",
+        "x = np.array([1.0, 0.5])   #input\n",
+        "y = forward(network, x)    #output\n",
+        "print(y)   # [0.31682708, 0.6962709]"
+      ],
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[0.31682708 0.69627909]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "r52ljj8KPhx_",
+        "outputId": "b9d5fa78-857a-45f3-840d-f6d7b348ac44",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "network = init_network()\n",
+        "x = np.array([0.8, 1.0])  \n",
+        "y = forward(network, x)    \n",
+        "print(y)"
+      ],
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[0.31880699 0.70067488]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "l1N-nhn4Pi1T"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
